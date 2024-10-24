@@ -5113,7 +5113,7 @@ MonoBehaviour:
   acceleration: 10
   maxSpeed: 30
   lerpSpeed: 1
-  friction: 0.999
+  friction: 0.997
   collisionBuffer: 0.5
   wakeParticles: {fileID: 211864792}
   bowRightParticles: {fileID: 1423462685}
