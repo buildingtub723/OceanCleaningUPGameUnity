@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<BoatInventoryUpgrade> _boatInventoryUpgrades;
     [SerializeField] private List<BoatSpeedUpgrade> _boatSpeedUpgrades;
+
     private List<TrashData> _boatInventory = new List<TrashData>();
     private int _money = 0;
     private int _boatInventoryUpgradeIndex = -1;
@@ -53,10 +54,14 @@ public class GameManager : MonoBehaviour
         EventManager.Game.OnDropZoneEntered -= OnDropZoneEntered;
     }
 
+    void OnDestroy()
+    {
+        Instance = null;
+    }
+
 
     void Start()
     {
-    
     }
 
     void OnTrashCollected(TrashController trash)
@@ -116,8 +121,6 @@ public class GameManager : MonoBehaviour
         }
         return inventoryWeight;
     }
-
-
 }
 
 [System.Serializable]
