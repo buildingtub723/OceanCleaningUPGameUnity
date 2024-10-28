@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class NetController : MonoBehaviour
 {
+    [SerializeField] private GameDataSO _gameData;
     private Rigidbody _rigidbody;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,7 +19,7 @@ public class NetController : MonoBehaviour
         {
             TrashController trash = other.GetComponent<TrashController>();
             int trashWeight = trash.TrashData.InventoryWeight;
-            if (GameManager.Instance.GetBoatInventoryWeight() + trashWeight <= GameManager.Instance.GetInventoryCapacity()) 
+            if (_gameData.GetBoatInventoryWeight() + trashWeight <= _gameData.BoatInventoryCapacity) 
             {
                 EventManager.Game.OnTrashCollected?.Invoke(trash);
                 Destroy(other.gameObject);

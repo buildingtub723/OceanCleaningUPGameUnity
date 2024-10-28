@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerBoatController : MonoBehaviour
 {
+    [SerializeField] private GameDataSO _gameData;
     public float acceleration = 10f; // Acceleration factor
     public float maxSpeed = 30f; // Maximum speed of the ship
     public float lerpSpeed = 1f; // Speed of the lerp
@@ -48,11 +49,7 @@ public class PlayerBoatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance._isGameplay)
-        {
-            wakeParticles.Stop();
-            return;
-        }
+
 
         // Store position before movement
         lastValidPosition = transform.position;
@@ -203,6 +200,17 @@ public class PlayerBoatController : MonoBehaviour
         {
             Debug.Log("Drop zone collision detected");
             EventManager.Game.OnDropZoneEntered?.Invoke();  
+        }
+
+        if (other.CompareTag("Trash"))
+        {
+            TrashController trash = other.GetComponent<TrashController>();
+            int trashWeight = trash.TrashData.InventoryWeight;
+            if (_gameData.GetBoatInventoryWeight() + trashWeight <= _gameData.BoatInventoryCapacity) 
+            {
+                EventManager.Game.OnTrashCollected?.Invoke(trash);
+                Destroy(other.gameObject);
+            }
         }
     }
 }

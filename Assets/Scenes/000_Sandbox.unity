@@ -1049,81 +1049,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &809284422
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 809284424}
-  - component: {fileID: 809284423}
-  m_Layer: 0
-  m_Name: CinemachineCamera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &809284423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809284422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Priority:
-    Enabled: 1
-    m_Value: 10
-  OutputChannel: 1
-  StandbyUpdate: 2
-  m_StreamingVersion: 20241001
-  m_LegacyPriority: 0
-  Target:
-    TrackingTarget: {fileID: 0}
-    LookAtTarget: {fileID: 0}
-    CustomLookAtTarget: 0
-  Lens:
-    FieldOfView: 60.000004
-    OrthographicSize: 5
-    NearClipPlane: 0.3
-    FarClipPlane: 1000
-    Dutch: 0
-    ModeOverride: 0
-    PhysicalProperties:
-      GateFit: 2
-      SensorSize: {x: 21.946, y: 16.002}
-      LensShift: {x: 0, y: 0}
-      FocusDistance: 10
-      Iso: 200
-      ShutterSpeed: 0.005
-      Aperture: 16
-      BladeCount: 5
-      Curvature: {x: 2, y: 11}
-      BarrelClipping: 0.25
-      Anamorphism: 0
-  BlendHint: 0
---- !u!4 &809284424
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809284422}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.12949376, y: -0.39281124, z: 0.05597524, w: 0.908734}
-  m_LocalPosition: {x: 12.166882, y: 6.99, z: -5.1214294}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 16.22, y: -46.754, z: 0}
 --- !u!1 &846243920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db624fe9348134da6b753d15a77e1108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameData: {fileID: 11400000, guid: 4fe9bdece16b64f57ac911147186d868, type: 2}
   _moneyLabel: {fileID: 877428636}
   _inventoryLabel: {fileID: 1311894831}
   _animationDuration: 0.5
@@ -1483,8 +1409,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858856529}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12949376, y: -0.39281124, z: 0.05597524, w: 0.908734}
-  m_LocalPosition: {x: 12.166882, y: 6.99, z: -5.1214294}
+  m_LocalRotation: {x: 0.4891574, y: 0.0000006078702, z: -0.00000034091465, w: 0.87219554}
+  m_LocalPosition: {x: 0, y: 95.9, z: -55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1583,7 +1509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &861561502
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2641,7 +2567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1215439552
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3315,17 +3241,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 908192712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1394024904 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2596374025894837872, guid: 8dac6fbdd6170467f8d0b852c74e6793, type: 3}
-  m_PrefabInstance: {fileID: 2436199865199464280}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1431892260
 GameObject:
   m_ObjectHideFlags: 0
@@ -3821,63 +3736,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617947896}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1666691797
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1666691799}
-  - component: {fileID: 1666691798}
-  m_Layer: 0
-  m_Name: Game Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1666691798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666691797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e05cb684072dc41ebafb796399ffe4e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _boatInventoryUpgrades:
-  - Slots: 5
-    Cost: 10
-  - Slots: 5
-    Cost: 0
-  - Slots: 5
-    Cost: 0
-  _boatSpeedUpgrades: []
-  _initialCamera: {fileID: 809284423}
-  _followCamera: {fileID: 1394024904}
-  TitlePanel: {fileID: 1215439551}
-  GameplayPanel: {fileID: 861561501}
-  _isGameplay: 0
---- !u!4 &1666691799
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666691797}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1066.6804, y: 521.08386, z: 250.9258}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685204027
 GameObject:
   m_ObjectHideFlags: 0
@@ -3961,7 +3819,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1666691798}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: InitGameplay
         m_Mode: 1
@@ -4553,7 +4411,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1666691798}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ResetScene
         m_Mode: 1
@@ -5375,5 +5233,3 @@ SceneRoots:
   - {fileID: 846243924}
   - {fileID: 145077649}
   - {fileID: 1985971118}
-  - {fileID: 809284424}
-  - {fileID: 1666691799}

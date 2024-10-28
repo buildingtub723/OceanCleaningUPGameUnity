@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fb5f7ddceba4496acfc464b0213cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameData: {fileID: 11400000, guid: 4fe9bdece16b64f57ac911147186d868, type: 2}
   acceleration: 10
   maxSpeed: 30
   lerpSpeed: 1
@@ -59,6 +60,7 @@ MonoBehaviour:
   wakeParticles: {fileID: 5305964641814151719}
   bowRightParticles: {fileID: 6108944360547159726}
   bowLeftParticles: {fileID: 7498678641492666706}
+  _isEngineRunning: 0
 --- !u!65 &9057190882953989442
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5007,6 +5009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b4666098e82494a92c0c90540aea16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameData: {fileID: 11400000, guid: 4fe9bdece16b64f57ac911147186d868, type: 2}
 --- !u!1 &3774529807859303470
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField] private GameDataSO _gameData;
     [SerializeField] private TMP_Text _moneyLabel;
     [SerializeField] private TMP_Text _inventoryLabel;
     [SerializeField] private float _animationDuration = 0.5f;
@@ -12,8 +13,8 @@ public class UIController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _moneyLabel.text = $"{GameManager.Instance.GetMoney():C0}";
-        _inventoryLabel.text = $"{GameManager.Instance.GetBoatInventoryWeight()}/{GameManager.Instance.GetInventoryCapacity()}";
+        _moneyLabel.text = $"{_gameData.Money:C0}";
+        _inventoryLabel.text = $"{_gameData.GetBoatInventoryWeight()}/{_gameData.BoatInventoryCapacity}";
     }
 
     void OnEnable()
@@ -31,8 +32,8 @@ public class UIController : MonoBehaviour
     void OnInventoryChanged()
     {
         float currentWeight = float.Parse(_inventoryLabel.text.Split('/')[0]);
-        float targetWeight = GameManager.Instance.GetBoatInventoryWeight();
-        int capacity = GameManager.Instance.GetInventoryCapacity();
+        float targetWeight = _gameData.GetBoatInventoryWeight();
+        int capacity = _gameData.BoatInventoryCapacity;
 
         DOTween.To(() => currentWeight, x => currentWeight = x, targetWeight, _animationDuration)
             .OnUpdate(() => _inventoryLabel.text = $"{Mathf.Round(currentWeight)}/{capacity}")
@@ -42,7 +43,7 @@ public class UIController : MonoBehaviour
     void OnMoneyChanged()
     {
         float currentMoney = float.Parse(_moneyLabel.text.Substring(1).Replace(",", ""));
-        float targetMoney = GameManager.Instance.GetMoney();
+        float targetMoney = _gameData.Money;
 
         DOTween.To(() => currentMoney, x => currentMoney = x, targetMoney, _animationDuration)
             .OnUpdate(() => _moneyLabel.text = $"{currentMoney:C0}")
