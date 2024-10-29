@@ -43,6 +43,7 @@ public class PlayerBoatController : MonoBehaviour
 
         // Store initial position
         lastValidPosition = transform.position;
+
     }
 
     // Update is called once per frame
@@ -188,7 +189,14 @@ public class PlayerBoatController : MonoBehaviour
         if (other.CompareTag("DropZone"))
         {
             Debug.Log("Drop zone collision detected");
-            EventManager.Game.OnDropZoneExited?.Invoke();  
+            if (other.GetComponentInParent<RecyclingCenterController>().IsUnlocked)
+            {
+                EventManager.Game.OnDropZoneExited?.Invoke();
+            }
+            else
+            {
+                EventManager.Game.OnLockedDropZoneExited?.Invoke();
+            }
         }
     }
 
@@ -207,7 +215,17 @@ public class PlayerBoatController : MonoBehaviour
         if (other.CompareTag("DropZone"))
         {
             Debug.Log("Drop zone collision detected");
-            EventManager.Game.OnDropZoneEntered?.Invoke();  
+
+            if (other.GetComponentInParent<RecyclingCenterController>().IsUnlocked)
+            {
+                Debug.Log("Unlocked drop zone");
+                EventManager.Game.OnDropZoneEntered?.Invoke();
+            }
+            else
+            {
+                Debug.Log("Locked drop zone");
+                EventManager.Game.OnLockedDropZoneEntered?.Invoke(other.GetComponentInParent<RecyclingCenterController>());
+            }
         }
 
         if (other.CompareTag("Trash"))

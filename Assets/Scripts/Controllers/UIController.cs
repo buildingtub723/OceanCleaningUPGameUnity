@@ -14,12 +14,16 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMP_Text _inventoryFullLabel;
     [SerializeField] private float _animationDuration = 0.5f;
 
+    [SerializeField] private TMP_Text _trashPiecesLabel;
+    [SerializeField] private TMP_Text _gameWonLabel;
+
     [SerializeField] private Button _quitButton;
 
     [SerializeField] private GameObject _upgradePanel;
     [SerializeField] private Button _upgradeOpenButton;
     [SerializeField] private Button _upgradeCloseButton;
 
+    [SerializeField] private Button _unlockRecyclingCenterButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,6 +35,8 @@ public class UIController : MonoBehaviour
         _gameData.BoatInventoryCapacity = 5;
         _gameData.Money = 0;
         _gameData.BoatInventory = new List<TrashData>();
+        _gameData.TrashPiecesCollected = 0;
+        _gameData.TotalTrashPieces = 0;
 
         _moneyLabel.text = $"{_gameData.Money:C0}";
         _upgradeMenuMoneyLabel.text = $"{_gameData.Money:C0}";
@@ -40,6 +46,15 @@ public class UIController : MonoBehaviour
         _upgradeCloseButton.onClick.AddListener(HandleCloseUpgradePanel);
 
         _quitButton.onClick.AddListener(HandleQuitGame);
+
+
+        _gameData.TotalTrashPieces = FindObjectsOfType<TrashController>().Length;
+        _trashPiecesLabel.text = $"{_gameData.TrashPiecesCollected}/{_gameData.TotalTrashPieces}";
+
+        _unlockRecyclingCenterButton.interactable = false;
+        _unlockRecyclingCenterButton.gameObject.SetActive(false);
+        _unlockRecyclingCenterButton.onClick.AddListener(HandleUnlockRecyclingCenter);
+
     }
 
     void OnEnable()
@@ -48,7 +63,10 @@ public class UIController : MonoBehaviour
         EventManager.UI.OnMoneyChanged += OnMoneyChanged;
         EventManager.Game.OnDropZoneEntered += OnDropZoneEntered;
         EventManager.Game.OnDropZoneExited += OnDropZoneExited;
+        EventManager.Game.OnLockedDropZoneEntered += OnLockedDropZoneEntered;
+        EventManager.Game.OnLockedDropZoneExited += OnLockedDropZoneExited;
         EventManager.UI.OnInventoryFull += OnInventoryFull;
+        EventManager.Game.OnGameWon += OnGameWon;
     }
 
     void OnDisable()
@@ -57,7 +75,10 @@ public class UIController : MonoBehaviour
         EventManager.UI.OnMoneyChanged -= OnMoneyChanged;
         EventManager.Game.OnDropZoneEntered -= OnDropZoneEntered;
         EventManager.Game.OnDropZoneExited -= OnDropZoneExited;
+        EventManager.Game.OnLockedDropZoneEntered -= OnLockedDropZoneEntered;
+        EventManager.Game.OnLockedDropZoneExited -= OnLockedDropZoneExited;
         EventManager.UI.OnInventoryFull -= OnInventoryFull;
+        EventManager.Game.OnGameWon -= OnGameWon;
     }
 
     void OnInventoryChanged()
@@ -69,6 +90,8 @@ public class UIController : MonoBehaviour
         DOTween.To(() => currentWeight, x => currentWeight = x, targetWeight, _animationDuration)
             .OnUpdate(() => _inventoryLabel.text = $"{Mathf.Round(currentWeight)}/{capacity}")
             .SetEase(Ease.OutCubic);
+
+        _trashPiecesLabel.text = $"{_gameData.TrashPiecesCollected}/{_gameData.TotalTrashPieces}";
     }
 
     async void OnInventoryFull()
@@ -100,6 +123,43 @@ public class UIController : MonoBehaviour
         _upgradeOpenButton.gameObject.SetActive(false);
     }
 
+    void OnLockedDropZoneEntered(RecyclingCenterController recyclingCenter)
+    {
+        if (_gameData.Money < recyclingCenter.PriceToUnlock)
+        {
+            _unlockRecyclingCenterButton.interactable = false;
+        }
+        else
+        {
+            _unlockRecyclingCenterButton.interactable = true;
+        }
+
+        _unlockRecyclingCenterButton.gameObject.SetActive(true);
+        _gameData.CurrentRecyclingCenter = recyclingCenter;
+        _unlockRecyclingCenterButton.GetComponentInChildren<TMP_Text>().text = $"UNLOCK FOR {_gameData.CurrentRecyclingCenter.PriceToUnlock:C0}";
+    }
+
+    void OnLockedDropZoneExited()
+    {
+        _unlockRecyclingCenterButton.gameObject.SetActive(false);
+
+        _gameData.CurrentRecyclingCenter = null;
+    }
+
+    public void HandleUnlockRecyclingCenter()
+    {
+        if (_gameData.Money >= _gameData.CurrentRecyclingCenter.PriceToUnlock)
+        {
+            _gameData.Money -= _gameData.CurrentRecyclingCenter.PriceToUnlock;
+            _gameData.CurrentRecyclingCenter.HandleUnlockRecyclingCenter();
+
+            _unlockRecyclingCenterButton.gameObject.SetActive(false);
+            _gameData.CurrentRecyclingCenter = null;
+
+            EventManager.Game.OnDropZoneEntered?.Invoke();
+        }
+    }
+
     public void HandleOpenUpgradePanel()
     {
         EventManager.UI.OnPauseGame?.Invoke();
@@ -115,5 +175,12 @@ public class UIController : MonoBehaviour
     public void HandleQuitGame()
     {
         SceneManager.LoadScene("100_MainMenu");
+    }
+
+    async void OnGameWon()
+    {
+        _gameWonLabel.gameObject.SetActive(true);
+        await Task.Delay(2000);
+        SceneManager.LoadScene("300_WinMenu");
     }
 }

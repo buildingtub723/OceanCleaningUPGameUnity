@@ -7,12 +7,17 @@ public class GameDataSO : ScriptableObject
 {
     public bool IsGamePaused = false;
 
+    public int TrashPiecesCollected = 0;
+    public int TotalTrashPieces = 0;
+
     public List<TrashData> BoatInventory = new List<TrashData>();
     public int Money = 0;
     public int BoatInventoryUpgradeLevel = 0;
     public int BoatSpeedUpgradeLevel = 0;
     public int BoatInventoryCapacity = 5;
     public float BoatSpeed = 15f;
+
+    public RecyclingCenterController CurrentRecyclingCenter;
 
     void OnEnable()
     {
@@ -46,11 +51,17 @@ public class GameDataSO : ScriptableObject
         foreach (TrashData trash in BoatInventory)
         {
             Money += trash.Value;
+            TrashPiecesCollected++;
         }
         BoatInventory.Clear();
 
         EventManager.UI.OnInventoryChanged?.Invoke();
         EventManager.UI.OnMoneyChanged?.Invoke();
+
+        if (TotalTrashPieces == TrashPiecesCollected)
+        {
+            EventManager.Game.OnGameWon?.Invoke();
+        }
     }
 
     void OnPauseGame()

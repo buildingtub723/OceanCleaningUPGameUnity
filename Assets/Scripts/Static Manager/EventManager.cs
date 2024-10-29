@@ -24,5 +24,8 @@ public static class EventManager
         public UnityAction<TrashController> OnTrashCollected;
         public UnityAction OnDropZoneEntered;
         public UnityAction OnDropZoneExited;
+        public UnityAction<RecyclingCenterController> OnLockedDropZoneEntered;
+        public UnityAction OnLockedDropZoneExited;
+        public UnityAction OnGameWon;
     }
 }
