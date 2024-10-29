@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5239331401047602471}
   - component: {fileID: 2460867214960694452}
   - component: {fileID: 9057190882953989442}
+  - component: {fileID: 237686580381642038}
   m_Layer: 0
   m_Name: PlayerBoat
   m_TagString: Untagged
@@ -53,7 +54,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameData: {fileID: 11400000, guid: 4fe9bdece16b64f57ac911147186d868, type: 2}
   acceleration: 10
-  maxSpeed: 30
   lerpSpeed: 1
   friction: 0.997
   collisionBuffer: 0.5
@@ -78,10 +78,33 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 5.8729963, y: 3.1959372, z: 15.262045}
+  m_Size: {x: 5.8729963, y: 10.32, z: 15.262045}
   m_Center: {x: 0, y: 0.4061284, z: 0.977067}
+--- !u!136 &237686580381642038
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885163219219713324}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Height: 16.53
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 1.9}
 --- !u!1 &1562527878733468411
 GameObject:
   m_ObjectHideFlags: 0
@@ -4942,13 +4965,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603007642608912666}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.2066311, z: 0, w: 0.97841895}
+  m_LocalRotation: {x: 0, y: 0.21788773, z: 0, w: 0.97597384}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5239331401047602471}
-  m_LocalEulerAnglesHint: {x: 0, y: 23.85, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 25.17, z: 0}
 --- !u!54 &1544738618798944645
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4996,7 +5019,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 7.18, y: 5.56, z: 1}
-  m_Center: {x: 6.93, y: -2.87, z: -1.34}
+  m_Center: {x: 8.49, y: -2.7, z: -1.34}
 --- !u!114 &2626091777270338715
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e33c49596c2ae479db966a16e42ab9e5, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  BoatInventoryUpgrades: []
-  BoatSpeedUpgrades: []
+  IsGamePaused: 0
   BoatInventory: []
-  Money: 0
-  BoatInventoryUpgradeIndex: -1
-  BoatSpeedUpgradeIndex: -1
-  BoatInventoryCapacity: 5
-  BoatSpeed: 10
+  Money: 850
+  BoatInventoryUpgradeLevel: 3
+  BoatSpeedUpgradeLevel: 3
+  BoatInventoryCapacity: 20
+  BoatSpeed: 100

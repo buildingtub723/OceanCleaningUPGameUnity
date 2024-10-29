@@ -24,6 +24,10 @@ public class NetController : MonoBehaviour
                 EventManager.Game.OnTrashCollected?.Invoke(trash);
                 Destroy(other.gameObject);
             }
+            else
+            {
+                EventManager.UI.OnInventoryFull?.Invoke();
+            }
         }
     }
 }

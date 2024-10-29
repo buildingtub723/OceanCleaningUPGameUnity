@@ -3,6 +3,7 @@ using System;
 [System.Serializable]
 public class BoatInventoryUpgrade
 {
+    public int Level;
     public int Slots;
-    public int Cost;
+    public int Price;
 }

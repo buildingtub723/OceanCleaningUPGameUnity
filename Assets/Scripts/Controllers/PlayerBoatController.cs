@@ -6,8 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerBoatController : MonoBehaviour
 {
     [SerializeField] private GameDataSO _gameData;
-    public float acceleration = 10f; // Acceleration factor
-    public float maxSpeed = 30f; // Maximum speed of the ship
+    public float acceleration = 30f; // Acceleration factor
     public float lerpSpeed = 1f; // Speed of the lerp
     public float friction = 0.999f; // Friction factor
     public float collisionBuffer = 0.5f; // New variable for collision buffer
@@ -49,7 +48,10 @@ public class PlayerBoatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (_gameData.IsGamePaused)
+        {
+            return;
+        }
 
         // Store position before movement
         lastValidPosition = transform.position;
@@ -123,7 +125,7 @@ public class PlayerBoatController : MonoBehaviour
         }
 
         // Clamp velocity magnitude to ensure it doesn't exceed maxSpeed
-        velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+        velocity = Vector3.ClampMagnitude(velocity, _gameData.BoatSpeed);
 
         if (!isColliding)
         {
@@ -182,6 +184,12 @@ public class PlayerBoatController : MonoBehaviour
             Debug.Log("No longer colliding with obstacle");
             isColliding = false;
         }
+
+        if (other.CompareTag("DropZone"))
+        {
+            Debug.Log("Drop zone collision detected");
+            EventManager.Game.OnDropZoneExited?.Invoke();  
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -210,6 +218,10 @@ public class PlayerBoatController : MonoBehaviour
             {
                 EventManager.Game.OnTrashCollected?.Invoke(trash);
                 Destroy(other.gameObject);
+            }
+            else
+            {
+                EventManager.UI.OnInventoryFull?.Invoke();
             }
         }
     }
