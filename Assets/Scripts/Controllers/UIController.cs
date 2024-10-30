@@ -33,7 +33,7 @@ public class UIController : MonoBehaviour
         _gameData.BoatInventoryUpgradeLevel = 0;
         _gameData.BoatSpeed = 20f;
         _gameData.BoatInventoryCapacity = 5;
-        _gameData.Money = 1000;
+        _gameData.Money = 0;
         _gameData.BoatInventory = new List<TrashData>();
         _gameData.TrashPiecesCollected = 0;
         _gameData.TotalTrashPieces = 0;

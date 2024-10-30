@@ -14,7 +14,7 @@ public class MainMenuController : MonoBehaviour
 
    void OnNextButtonClicked()
    {
-    SceneManager.LoadScene("200_GameplaySandbox");
+    SceneManager.LoadScene("200_Gameplay");
    }
 
 

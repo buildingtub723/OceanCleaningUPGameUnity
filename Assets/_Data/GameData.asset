@@ -13,10 +13,25 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   IsGamePaused: 0
-  TrashPiecesCollected: 0
-  TotalTrashPieces: 0
-  BoatInventory: []
-  Money: 1000
+  TrashPiecesCollected: 2
+  TotalTrashPieces: 8
+  BoatInventory:
+  - Name: Test 2
+    Value: 25
+    InventoryWeight: 1
+  - Name: Test 2
+    Value: 25
+    InventoryWeight: 1
+  - Name: Test 2
+    Value: 25
+    InventoryWeight: 1
+  - Name: Test 2
+    Value: 25
+    InventoryWeight: 1
+  - Name: Test 2
+    Value: 25
+    InventoryWeight: 1
+  Money: 1040
   BoatInventoryUpgradeLevel: 0
   BoatSpeedUpgradeLevel: 0
   BoatInventoryCapacity: 5
