@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   IsGamePaused: 0
+  TrashPiecesCollected: 0
+  TotalTrashPieces: 0
   BoatInventory: []
-  Money: 850
-  BoatInventoryUpgradeLevel: 3
-  BoatSpeedUpgradeLevel: 3
-  BoatInventoryCapacity: 20
-  BoatSpeed: 100
+  Money: 1000
+  BoatInventoryUpgradeLevel: 0
+  BoatSpeedUpgradeLevel: 0
+  BoatInventoryCapacity: 5
+  BoatSpeed: 20
+  CurrentRecyclingCenter: {fileID: 0}
