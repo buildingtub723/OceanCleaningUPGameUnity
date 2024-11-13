@@ -1,29 +1,51 @@
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.UI;
-using TMPro;
-using DG.Tweening;
 using System.Threading.Tasks;
+using DG.Tweening;
+using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameDataSO _gameData;
-    [SerializeField] private TMP_Text _moneyLabel;
-    [SerializeField] private TMP_Text _upgradeMenuMoneyLabel;
-    [SerializeField] private TMP_Text _inventoryLabel;
-    [SerializeField] private TMP_Text _inventoryFullLabel;
-    [SerializeField] private float _animationDuration = 0.5f;
+    [SerializeField]
+    private GameDataSO _gameData;
 
-    [SerializeField] private TMP_Text _trashPiecesLabel;
-    [SerializeField] private TMP_Text _gameWonLabel;
+    [SerializeField]
+    private TMP_Text _moneyLabel;
 
-    [SerializeField] private Button _quitButton;
+    [SerializeField]
+    private TMP_Text _upgradeMenuMoneyLabel;
 
-    [SerializeField] private GameObject _upgradePanel;
-    [SerializeField] private Button _upgradeOpenButton;
-    [SerializeField] private Button _upgradeCloseButton;
+    [SerializeField]
+    private TMP_Text _inventoryLabel;
 
-    [SerializeField] private Button _unlockRecyclingCenterButton;
+    [SerializeField]
+    private TMP_Text _inventoryFullLabel;
+
+    [SerializeField]
+    private float _animationDuration = 0.5f;
+
+    [SerializeField]
+    private TMP_Text _trashPiecesLabel;
+
+    [SerializeField]
+    private TMP_Text _gameWonLabel;
+
+    [SerializeField]
+    private Button _quitButton;
+
+    [SerializeField]
+    private GameObject _upgradePanel;
+
+    [SerializeField]
+    private Button _upgradeOpenButton;
+
+    [SerializeField]
+    private Button _upgradeCloseButton;
+
+    [SerializeField]
+    private Button _unlockRecyclingCenterButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,21 +62,19 @@ public class UIController : MonoBehaviour
 
         _moneyLabel.text = $"{_gameData.Money:C0}";
         _upgradeMenuMoneyLabel.text = $"{_gameData.Money:C0}";
-        _inventoryLabel.text = $"{_gameData.GetBoatInventoryWeight()}/{_gameData.BoatInventoryCapacity}";
+        _inventoryLabel.text =
+            $"{_gameData.GetBoatInventoryWeight()}/{_gameData.BoatInventoryCapacity}";
 
         _upgradeOpenButton.onClick.AddListener(HandleOpenUpgradePanel);
         _upgradeCloseButton.onClick.AddListener(HandleCloseUpgradePanel);
 
         _quitButton.onClick.AddListener(HandleQuitGame);
-
-
-        _gameData.TotalTrashPieces = FindObjectsOfType<TrashController>().Length;
+        _gameData.TotalTrashPieces = FindObjectsByType<TrashController>(FindObjectsSortMode.None).Length;
         _trashPiecesLabel.text = $"{_gameData.TrashPiecesCollected}/{_gameData.TotalTrashPieces}";
 
         _unlockRecyclingCenterButton.interactable = false;
         _unlockRecyclingCenterButton.gameObject.SetActive(false);
         _unlockRecyclingCenterButton.onClick.AddListener(HandleUnlockRecyclingCenter);
-
     }
 
     void OnEnable()
@@ -87,7 +107,8 @@ public class UIController : MonoBehaviour
         float targetWeight = _gameData.GetBoatInventoryWeight();
         int capacity = _gameData.BoatInventoryCapacity;
 
-        DOTween.To(() => currentWeight, x => currentWeight = x, targetWeight, _animationDuration)
+        DOTween
+            .To(() => currentWeight, x => currentWeight = x, targetWeight, _animationDuration)
             .OnUpdate(() => _inventoryLabel.text = $"{Mathf.Round(currentWeight)}/{capacity}")
             .SetEase(Ease.OutCubic);
 
@@ -106,7 +127,8 @@ public class UIController : MonoBehaviour
         float currentMoney = float.Parse(_moneyLabel.text.Substring(1).Replace(",", ""));
         float targetMoney = _gameData.Money;
 
-        DOTween.To(() => currentMoney, x => currentMoney = x, targetMoney, _animationDuration)
+        DOTween
+            .To(() => currentMoney, x => currentMoney = x, targetMoney, _animationDuration)
             .OnUpdate(() => _moneyLabel.text = $"{currentMoney:C0}")
             .SetEase(Ease.OutCubic);
 
@@ -136,7 +158,8 @@ public class UIController : MonoBehaviour
 
         _unlockRecyclingCenterButton.gameObject.SetActive(true);
         _gameData.CurrentRecyclingCenter = recyclingCenter;
-        _unlockRecyclingCenterButton.GetComponentInChildren<TMP_Text>().text = $"UNLOCK FOR {_gameData.CurrentRecyclingCenter.PriceToUnlock:C0}";
+        _unlockRecyclingCenterButton.GetComponentInChildren<TMP_Text>().text =
+            $"UNLOCK FOR {_gameData.CurrentRecyclingCenter.PriceToUnlock:C0}";
     }
 
     void OnLockedDropZoneExited()
@@ -149,7 +172,9 @@ public class UIController : MonoBehaviour
     public void HandleUnlockRecyclingCenter()
     {
         Debug.Log("HandleUnlockRecyclingCenter being pressed");
-        Debug.Log($"Money: {_gameData.Money}, PriceToUnlock: {_gameData.CurrentRecyclingCenter.PriceToUnlock}");
+        Debug.Log(
+            $"Money: {_gameData.Money}, PriceToUnlock: {_gameData.CurrentRecyclingCenter.PriceToUnlock}"
+        );
         if (_gameData.Money >= _gameData.CurrentRecyclingCenter.PriceToUnlock)
         {
             _gameData.Money -= _gameData.CurrentRecyclingCenter.PriceToUnlock;
