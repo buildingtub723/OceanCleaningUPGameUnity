@@ -42,7 +42,7 @@ public class GameDataSO : ScriptableObject
     void OnTrashCollected(TrashController trash)
     {
         BoatInventory.Add(trash.TrashData);
-        EventManager.UI.OnInventoryChanged?.Invoke();
+        EventManager.UI.InvokeInventoryChanged();
     }
 
     void OnDropZoneEntered()
@@ -55,12 +55,12 @@ public class GameDataSO : ScriptableObject
         }
         BoatInventory.Clear();
 
-        EventManager.UI.OnInventoryChanged?.Invoke();
-        EventManager.UI.OnMoneyChanged?.Invoke();
+        EventManager.UI.InvokeInventoryChanged();
+        EventManager.UI.InvokeMoneyChanged();
 
         if (TotalTrashPieces == TrashPiecesCollected)
         {
-            EventManager.Game.OnGameWon?.Invoke();
+            EventManager.Game.InvokeGameWon();
         }
     }
 
@@ -89,8 +89,8 @@ public class GameDataSO : ScriptableObject
         BoatSpeedUpgradeLevel = upgrade.Level;
         BoatSpeed = upgrade.Speed;
         Money -= upgrade.Price;
-        EventManager.UI.OnSpeedChanged?.Invoke();
-        EventManager.UI.OnMoneyChanged?.Invoke();
+        EventManager.UI.InvokeSpeedChanged();
+        EventManager.UI.InvokeMoneyChanged();
     }
 
     void OnInventoryUpgradePurchased(BoatInventoryUpgrade upgrade)
@@ -98,8 +98,8 @@ public class GameDataSO : ScriptableObject
         BoatInventoryUpgradeLevel = upgrade.Level;
         BoatInventoryCapacity = upgrade.Slots;
         Money -= upgrade.Price;
-        EventManager.UI.OnInventoryChanged?.Invoke();
-        EventManager.UI.OnMoneyChanged?.Invoke();
+        EventManager.UI.InvokeInventoryChanged();
+        EventManager.UI.InvokeMoneyChanged();
     }
 
 }

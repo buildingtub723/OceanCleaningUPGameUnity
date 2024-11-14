@@ -21,12 +21,12 @@ public class NetController : MonoBehaviour
             int trashWeight = trash.TrashData.InventoryWeight;
             if (_gameData.GetBoatInventoryWeight() + trashWeight <= _gameData.BoatInventoryCapacity) 
             {
-                EventManager.Game.OnTrashCollected?.Invoke(trash);
+                EventManager.Game.InvokeTrashCollected(trash);
                 Destroy(other.gameObject);
             }
             else
             {
-                EventManager.UI.OnInventoryFull?.Invoke();
+                EventManager.UI.InvokeInventoryFull();
             }
         }
     }

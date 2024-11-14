@@ -183,19 +183,19 @@ public class UIController : MonoBehaviour
             _unlockRecyclingCenterButton.gameObject.SetActive(false);
             _gameData.CurrentRecyclingCenter = null;
 
-            EventManager.Game.OnDropZoneEntered?.Invoke();
+            EventManager.Game.InvokeDropZoneEntered();
         }
     }
 
     public void HandleOpenUpgradePanel()
     {
-        EventManager.UI.OnPauseGame?.Invoke();
+        EventManager.UI.InvokePauseGame();
         _upgradePanel.SetActive(true);
     }
 
     public void HandleCloseUpgradePanel()
     {
-        EventManager.UI.OnResumeGame?.Invoke();
+        EventManager.UI.InvokeResumeGame();
         _upgradePanel.SetActive(false);
     }
 

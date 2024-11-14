@@ -60,10 +60,10 @@ public class UpgradeButtonController : MonoBehaviour
             switch (_upgradeType)
             {
                 case "speed":
-                    EventManager.UI.OnSpeedUpgradePurchased?.Invoke(new BoatSpeedUpgrade { Level = _upgradeLevel, Speed = _upgradeAmount, Price = _price });
+                    EventManager.UI.InvokeSpeedUpgradePurchased(new BoatSpeedUpgrade { Level = _upgradeLevel, Speed = _upgradeAmount, Price = _price });
                     break;
                 case "inventory":
-                    EventManager.UI.OnInventoryUpgradePurchased?.Invoke(new BoatInventoryUpgrade { Level = _upgradeLevel, Slots = _upgradeAmount, Price = _price });
+                    EventManager.UI.InvokeInventoryUpgradePurchased(new BoatInventoryUpgrade { Level = _upgradeLevel, Slots = _upgradeAmount, Price = _price });
                     break;
             }
             CheckAvailability();

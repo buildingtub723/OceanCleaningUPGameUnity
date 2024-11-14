@@ -61,13 +61,13 @@ public class PlayerBoatController : MonoBehaviour
         bool hasInput = false;
 
         // Check input for movement
-        if (Gamepad.current != null)
-        {
-            Vector2 joystickInput = Gamepad.current.leftStick.ReadValue();
-            inputDirection = new Vector3(joystickInput.x, 0, joystickInput.y);
-            hasInput = joystickInput != Vector2.zero;
-        }
-        else if (Input.GetMouseButton(0)) // Right mouse button is held down
+        // if (Gamepad.current != null)
+        // {
+        //     Vector2 joystickInput = Gamepad.current.leftStick.ReadValue();
+        //     inputDirection = new Vector3(joystickInput.x, 0, joystickInput.y);
+        //     hasInput = joystickInput != Vector2.zero;
+        // }
+        if (Input.GetMouseButton(0)) // Right mouse button is held down
         {
             Vector3 mousePosition = Input.mousePosition;
             Vector3 shipScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
@@ -191,11 +191,11 @@ public class PlayerBoatController : MonoBehaviour
             Debug.Log("Drop zone collision detected");
             if (other.GetComponentInParent<RecyclingCenterController>().IsUnlocked)
             {
-                EventManager.Game.OnDropZoneExited?.Invoke();
+                EventManager.Game.InvokeDropZoneExited();
             }
             else
             {
-                EventManager.Game.OnLockedDropZoneExited?.Invoke();
+                EventManager.Game.InvokeLockedDropZoneExited();
             }
         }
     }
@@ -219,12 +219,12 @@ public class PlayerBoatController : MonoBehaviour
             if (other.GetComponentInParent<RecyclingCenterController>().IsUnlocked)
             {
                 Debug.Log("Unlocked drop zone");
-                EventManager.Game.OnDropZoneEntered?.Invoke();
+                EventManager.Game.InvokeDropZoneEntered();
             }
             else
             {
                 Debug.Log("Locked drop zone");
-                EventManager.Game.OnLockedDropZoneEntered?.Invoke(other.GetComponentInParent<RecyclingCenterController>());
+                EventManager.Game.InvokeLockedDropZoneEntered(other.GetComponentInParent<RecyclingCenterController>());
             }
         }
 
@@ -234,12 +234,12 @@ public class PlayerBoatController : MonoBehaviour
             int trashWeight = trash.TrashData.InventoryWeight;
             if (_gameData.GetBoatInventoryWeight() + trashWeight <= _gameData.BoatInventoryCapacity) 
             {
-                EventManager.Game.OnTrashCollected?.Invoke(trash);
+                EventManager.Game.InvokeTrashCollected(trash);
                 Destroy(other.gameObject);
             }
             else
             {
-                EventManager.UI.OnInventoryFull?.Invoke();
+                EventManager.UI.InvokeInventoryFull();
             }
         }
     }
