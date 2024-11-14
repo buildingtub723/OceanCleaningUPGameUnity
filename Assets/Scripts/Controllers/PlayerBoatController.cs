@@ -69,13 +69,14 @@ public class PlayerBoatController : MonoBehaviour
         // }
         if (Input.GetMouseButton(0)) // Right mouse button is held down
         {
+            Debug.Log("Right mouse button is held down");
             Vector3 mousePosition = Input.mousePosition;
             Vector3 shipScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
             Vector3 directionInScreenSpace = mousePosition - shipScreenPosition;
             inputDirection = new Vector3(directionInScreenSpace.x, 0, directionInScreenSpace.y);
             hasInput = true;
         }
-        else
+        else if (Keyboard.current != null)
         {
             if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed)
             {
