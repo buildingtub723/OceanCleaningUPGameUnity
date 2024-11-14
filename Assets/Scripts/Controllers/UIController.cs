@@ -113,6 +113,12 @@ public class UIController : MonoBehaviour
             .SetEase(Ease.OutCubic);
 
         _trashPiecesLabel.text = $"{_gameData.TrashPiecesCollected}/{_gameData.TotalTrashPieces}";
+
+        _moneyLabel.text = $"{_gameData.Money:C0}";
+
+
+
+        _upgradeMenuMoneyLabel.text = $"{_gameData.Money:C0}";
     }
 
     async void OnInventoryFull()
@@ -131,6 +137,7 @@ public class UIController : MonoBehaviour
             .To(() => currentMoney, x => currentMoney = x, targetMoney, _animationDuration)
             .OnUpdate(() => _moneyLabel.text = $"{currentMoney:C0}")
             .SetEase(Ease.OutCubic);
+
 
         _upgradeMenuMoneyLabel.text = $"{_gameData.Money:C0}";
     }
@@ -210,4 +217,6 @@ public class UIController : MonoBehaviour
         await Task.Delay(2000);
         SceneManager.LoadScene("300_WinMenu");
     }
+
+    
 }
