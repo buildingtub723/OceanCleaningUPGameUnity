@@ -25,6 +25,8 @@ public class PlayerBoatController : MonoBehaviour
 
     private bool areBowParticlesPlaying = false;
 
+    public UIController _uiController;
+
     void Start()
     {
         Debug.Log("PlayerBoatController Start");
@@ -221,7 +223,7 @@ public class PlayerBoatController : MonoBehaviour
             {
                 Debug.Log("Unlocked drop zone");
                 EventManager.Game.InvokeDropZoneEntered();
-                EventManager.Hack.InvokeOpenUpgradeMenu();
+                _uiController.OnDropZoneEntered();
             }
             else
             {

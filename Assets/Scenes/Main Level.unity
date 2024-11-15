@@ -2602,6 +2602,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f88f53df4d34941d69817a9a8ede0ae2, type: 3}
+--- !u!114 &1092229288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6264537249580315983, guid: f88f53df4d34941d69817a9a8ede0ae2, type: 3}
+  m_PrefabInstance: {fileID: 1092229287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db624fe9348134da6b753d15a77e1108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1234405894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3779,6 +3790,10 @@ PrefabInstance:
       propertyPath: acceleration
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 2460867214960694452, guid: 8dac6fbdd6170467f8d0b852c74e6793, type: 3}
+      propertyPath: _uiController
+      value: 
+      objectReference: {fileID: 1092229288}
     - target: {fileID: 5239331401047602471, guid: 8dac6fbdd6170467f8d0b852c74e6793, type: 3}
       propertyPath: m_LocalPosition.x
       value: 805

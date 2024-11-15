@@ -81,13 +81,13 @@ public class UIController : MonoBehaviour
     {
         EventManager.UI.OnInventoryChanged += OnInventoryChanged;
         EventManager.UI.OnMoneyChanged += OnMoneyChanged;
-        EventManager.Game.OnDropZoneEntered += OnDropZoneEntered;
+        // EventManager.Game.OnDropZoneEntered += OnDropZoneEntered;
         EventManager.Game.OnDropZoneExited += OnDropZoneExited;
         EventManager.Game.OnLockedDropZoneEntered += OnLockedDropZoneEntered;
         EventManager.Game.OnLockedDropZoneExited += OnLockedDropZoneExited;
         EventManager.UI.OnInventoryFull += OnInventoryFull;
         EventManager.Game.OnGameWon += OnGameWon;
-        EventManager.Hack.OnOpenUpgradeMenu += OnOpenUpgradeMenu;
+
  
     }
 
@@ -95,19 +95,16 @@ public class UIController : MonoBehaviour
     {
         EventManager.UI.OnInventoryChanged -= OnInventoryChanged;
         EventManager.UI.OnMoneyChanged -= OnMoneyChanged;
-        EventManager.Game.OnDropZoneEntered -= OnDropZoneEntered;
+        // EventManager.Game.OnDropZoneEntered -= OnDropZoneEntered;
         EventManager.Game.OnDropZoneExited -= OnDropZoneExited;
         EventManager.Game.OnLockedDropZoneEntered -= OnLockedDropZoneEntered;
         EventManager.Game.OnLockedDropZoneExited -= OnLockedDropZoneExited;
         EventManager.UI.OnInventoryFull -= OnInventoryFull;
         EventManager.Game.OnGameWon -= OnGameWon;
-        EventManager.Hack.OnOpenUpgradeMenu -= OnOpenUpgradeMenu;
+
     }
 
-    void OnOpenUpgradeMenu()
-    {
-        _upgradeOpenButton.gameObject.SetActive(true);
-    }
+
 
     void OnInventoryChanged()
     {
@@ -148,7 +145,7 @@ public class UIController : MonoBehaviour
         _upgradeMenuMoneyLabel.text = $"{_gameData.Money:C0}";
     }
 
-    void OnDropZoneEntered()
+    public void OnDropZoneEntered()
     {
         _upgradeOpenButton.gameObject.SetActive(true);
     }
