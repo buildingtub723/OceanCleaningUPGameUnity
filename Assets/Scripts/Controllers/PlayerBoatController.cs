@@ -221,6 +221,7 @@ public class PlayerBoatController : MonoBehaviour
             {
                 Debug.Log("Unlocked drop zone");
                 EventManager.Game.InvokeDropZoneEntered();
+                EventManager.Hack.InvokeOpenUpgradeMenu();
             }
             else
             {

@@ -6,7 +6,7 @@ public static class EventManager
 {
     public static readonly UIEvents UI = new UIEvents();
     public static readonly GameEvents Game = new GameEvents();
-
+    public static readonly HackEvents Hack = new HackEvents();
     public class UIEvents
     {
         private event Action _onInventoryChanged;
@@ -119,5 +119,19 @@ public static class EventManager
             add => _onGameWon += value;
             remove => _onGameWon -= value;
         }
+    }
+
+    public class HackEvents
+    {
+        private event Action _onOpenUpgradeMenu;
+
+        public event Action OnOpenUpgradeMenu
+        {
+            add => _onOpenUpgradeMenu += value;
+            remove => _onOpenUpgradeMenu -= value;
+        }
+
+        public void InvokeOpenUpgradeMenu() => _onOpenUpgradeMenu?.Invoke();
+
     }
 }

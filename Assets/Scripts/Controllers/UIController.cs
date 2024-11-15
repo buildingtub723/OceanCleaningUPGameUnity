@@ -87,6 +87,8 @@ public class UIController : MonoBehaviour
         EventManager.Game.OnLockedDropZoneExited += OnLockedDropZoneExited;
         EventManager.UI.OnInventoryFull += OnInventoryFull;
         EventManager.Game.OnGameWon += OnGameWon;
+        EventManager.Hack.OnOpenUpgradeMenu += OnOpenUpgradeMenu;
+ 
     }
 
     void OnDisable()
@@ -99,6 +101,12 @@ public class UIController : MonoBehaviour
         EventManager.Game.OnLockedDropZoneExited -= OnLockedDropZoneExited;
         EventManager.UI.OnInventoryFull -= OnInventoryFull;
         EventManager.Game.OnGameWon -= OnGameWon;
+        EventManager.Hack.OnOpenUpgradeMenu -= OnOpenUpgradeMenu;
+    }
+
+    void OnOpenUpgradeMenu()
+    {
+        _upgradeOpenButton.gameObject.SetActive(true);
     }
 
     void OnInventoryChanged()
@@ -115,8 +123,6 @@ public class UIController : MonoBehaviour
         _trashPiecesLabel.text = $"{_gameData.TrashPiecesCollected}/{_gameData.TotalTrashPieces}";
 
         _moneyLabel.text = $"{_gameData.Money:C0}";
-
-
 
         _upgradeMenuMoneyLabel.text = $"{_gameData.Money:C0}";
     }
