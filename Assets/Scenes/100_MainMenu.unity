@@ -243,7 +243,7 @@ MonoBehaviour:
   _gameWonLabel: {fileID: 0}
   _quitButton: {fileID: 0}
   _upgradePanel: {fileID: 0}
-  _upgradeOpenButton: {fileID: 0}
+  UpgradeOpenButton: {fileID: 0}
   _upgradeCloseButton: {fileID: 0}
   _unlockRecyclingCenterButton: {fileID: 0}
 --- !u!114 &479633479
@@ -1104,7 +1104,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'DEBUG VERSION
 
-    0.8.0'
+    0.9.0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a4a7bfd56026843d8bb4067459e9085c, type: 2}
   m_sharedMaterial: {fileID: 8867081344885488610, guid: a4a7bfd56026843d8bb4067459e9085c, type: 2}

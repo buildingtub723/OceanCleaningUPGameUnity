@@ -223,7 +223,7 @@ public class PlayerBoatController : MonoBehaviour
             {
                 Debug.Log("Unlocked drop zone");
                 EventManager.Game.InvokeDropZoneEntered();
-                _uiController.OnDropZoneEntered();
+                _uiController.UpgradeOpenButton.gameObject.SetActive(true);
             }
             else
             {

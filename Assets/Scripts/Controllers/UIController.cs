@@ -38,11 +38,10 @@ public class UIController : MonoBehaviour
     [SerializeField]
     private GameObject _upgradePanel;
 
-    [SerializeField]
-    private Button _upgradeOpenButton;
+    public Button UpgradeOpenButton;
 
     [SerializeField]
-    private Button _upgradeCloseButton;
+    public Button _upgradeCloseButton;
 
     [SerializeField]
     private Button _unlockRecyclingCenterButton;
@@ -65,7 +64,7 @@ public class UIController : MonoBehaviour
         _inventoryLabel.text =
             $"{_gameData.GetBoatInventoryWeight()}/{_gameData.BoatInventoryCapacity}";
 
-        _upgradeOpenButton.onClick.AddListener(HandleOpenUpgradePanel);
+        UpgradeOpenButton.onClick.AddListener(HandleOpenUpgradePanel);
         _upgradeCloseButton.onClick.AddListener(HandleCloseUpgradePanel);
 
         _quitButton.onClick.AddListener(HandleQuitGame);
@@ -145,14 +144,9 @@ public class UIController : MonoBehaviour
         _upgradeMenuMoneyLabel.text = $"{_gameData.Money:C0}";
     }
 
-    public void OnDropZoneEntered()
-    {
-        _upgradeOpenButton.gameObject.SetActive(true);
-    }
-
     void OnDropZoneExited()
     {
-        _upgradeOpenButton.gameObject.SetActive(false);
+        UpgradeOpenButton.gameObject.SetActive(false);
     }
 
     void OnLockedDropZoneEntered(RecyclingCenterController recyclingCenter)

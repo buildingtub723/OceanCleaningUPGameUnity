@@ -1708,7 +1708,7 @@ MonoBehaviour:
   _gameWonLabel: {fileID: 4498418627683901273}
   _quitButton: {fileID: 19749714124711047}
   _upgradePanel: {fileID: 192251121766246845}
-  _upgradeOpenButton: {fileID: 8354763857607904484}
+  UpgradeOpenButton: {fileID: 8354763857607904484}
   _upgradeCloseButton: {fileID: 6973111097654676064}
   _unlockRecyclingCenterButton: {fileID: 6360290751614567366}
 --- !u!1 &5341301086070719567
