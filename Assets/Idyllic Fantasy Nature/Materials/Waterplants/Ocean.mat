@@ -200,7 +200,7 @@ Material:
     - _Foam_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Foam_Scale: {r: 1000, g: 1000, b: 0, a: 0}
     - _RefractionScale: {r: 3, g: 12, b: 0, a: 0}
-    - _Refraction_Scale: {r: 140, g: 56, b: 0, a: 0}
+    - _Refraction_Scale: {r: 2000, g: 2000, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _RippleColor: {r: 1, g: 1, b: 1, a: 1}
     - _RippleScale: {r: 50, g: 200, b: 0, a: 0}
