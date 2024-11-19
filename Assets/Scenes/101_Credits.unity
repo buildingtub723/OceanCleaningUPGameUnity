@@ -628,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2873562483688329441, guid: 074ea13d106674877b04f2582617d599, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 84
+      value: 75.7
       objectReference: {fileID: 0}
     - target: {fileID: 2873562483688329441, guid: 074ea13d106674877b04f2582617d599, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2587,7 +2587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5586220953514933799, guid: 3165793d3ae6acb48863fa5e0f6d5ccb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 54
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5586220953514933799, guid: 3165793d3ae6acb48863fa5e0f6d5ccb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2712,13 +2712,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394477342}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.1458241, y: 0, z: 0, w: 0.98931056}
   m_LocalPosition: {x: 654, y: 82, z: -704.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -16.77, y: 0, z: 0}
 --- !u!114 &1394477346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2861,7 +2861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4418585035187661893, guid: 216d48b805269d24b82ee98782f87009, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 138
+      value: 106
       objectReference: {fileID: 0}
     - target: {fileID: 4418585035187661893, guid: 216d48b805269d24b82ee98782f87009, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2957,9 +2957,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl justo,
-    blandit ut convallis ut, pellentesque vel mauris. Aliquam nec lacinia eros. Sed
-    lectus turpis, scelerisque nec tincidunt non, lacinia vitae velit.
+  m_text: "Made by \nModeling: Sharvari Kubde, sebastian martinez, Shannon Flint\r\nGame
+    Design: Pablo Alvarado\nprograming:  Andrew curry"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ffd52f12a398464eb9e1db8c12269ac, type: 2}
   m_sharedMaterial: {fileID: -8321326947490266686, guid: 3ffd52f12a398464eb9e1db8c12269ac, type: 2}
@@ -3024,7 +3023,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -55.161133, y: 0, z: -41.37262, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
