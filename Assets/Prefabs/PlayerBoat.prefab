@@ -61,6 +61,7 @@ MonoBehaviour:
   bowRightParticles: {fileID: 6108944360547159726}
   bowLeftParticles: {fileID: 7498678641492666706}
   _isEngineRunning: 0
+  _uiController: {fileID: 0}
 --- !u!65 &9057190882953989442
 BoxCollider:
   m_ObjectHideFlags: 0

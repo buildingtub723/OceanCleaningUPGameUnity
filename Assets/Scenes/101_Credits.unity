@@ -2957,8 +2957,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Made by \nModeling: Sharvari Kubde, sebastian martinez, Shannon Flint\r\nGame
-    Design: Pablo Alvarado\nProgramming:  Andrew Currie"
+  m_text: "Made by \nTeam Leader Sebastian Martinez Pablo Alvarado\nModeling: Sharvari
+    Kubde, Sebastian Martinez, Shannon Flint\r\nGame Design: Pablo Alvarado\nProgramming: 
+    Andrew Currie"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3ffd52f12a398464eb9e1db8c12269ac, type: 2}
   m_sharedMaterial: {fileID: -8321326947490266686, guid: 3ffd52f12a398464eb9e1db8c12269ac, type: 2}

@@ -13,8 +13,20 @@ PrefabInstance:
       value: TrashItem Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6401801429973400400, guid: 265bb1b952b6b264a90990bb87324737, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 11.652679
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401801429973400400, guid: 265bb1b952b6b264a90990bb87324737, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 11.652679
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401801429973400400, guid: 265bb1b952b6b264a90990bb87324737, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 11.652679
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401801429973400400, guid: 265bb1b952b6b264a90990bb87324737, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 307.11078
+      value: 306.92
       objectReference: {fileID: 0}
     - target: {fileID: 6401801429973400400, guid: 265bb1b952b6b264a90990bb87324737, type: 3}
       propertyPath: m_LocalPosition.y
